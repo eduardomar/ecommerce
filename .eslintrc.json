@@ -19,6 +19,12 @@
   "plugins": ["react", "prettier"],
   "rules": {
     "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-props-no-spreading": [
+      0,
+      {
+        "html": "ignore"
+      }
+    ],
     "prettier/prettier": "error"
   }
 }
