@@ -3,6 +3,8 @@ import { StarIcon } from '@heroicons/react/solid';
 import { RadioGroup } from '@headlessui/react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { toggle } from '../shoppingCarts/shoppingCartsSlice';
 
 const reviews = { href: '#', average: 4, totalCount: 117 };
 
@@ -13,6 +15,9 @@ const Product = () => {
   const [selectedColor, setSelectedColor] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
   const [product, setProduct] = useState(null);
+  const dispatch = useDispatch();
+
+  const dispatchToggle = () => dispatch(toggle());
 
   useEffect(() => {
     let didCancel = false;
@@ -341,6 +346,12 @@ const Product = () => {
               <button
                 type="submit"
                 className="mt-10 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                onClick={(evt) => {
+                  dispatchToggle();
+
+                  evt.preventDefault();
+                  evt.stopPropagation();
+                }}
               >
                 Add to bag
               </button>

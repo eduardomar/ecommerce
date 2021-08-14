@@ -51,7 +51,7 @@ const Products = () => {
                     {product.title}
                   </h3>
                   <p className="mt-1 text-sm text-gray-500">
-                    {product.category || 'color'}
+                    {product.category || 'category'}
                   </p>
                 </div>
                 <p className="text-sm font-medium text-gray-900">
